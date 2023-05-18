@@ -1,0 +1,12 @@
+
+   <header> <div class="logo">
+    <img src="../../assets/fitfoodie.png" alt="Logo">
+    </div>
+    <nav>
+  <ul class="menu">
+    <li *ngFor="let menuItem of menuItems">
+      <a [routerLink]="menuItem.link">{{ menuItem.title }}</a>
+    </li>
+  </ul>
+</nav>
+</header>

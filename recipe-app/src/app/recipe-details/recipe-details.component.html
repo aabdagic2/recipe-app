@@ -1,0 +1,40 @@
+<head>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+  </head>
+<div class="recipe-details">
+    <div *ngIf="recipe">
+    <div class="recipe-image">
+      <img [src]="recipe.image" [alt]="recipe.title" />
+      <span class="save-button" [class.saved-button]="isSaved" (click)="saveRecipe()">
+        <i class="far fa-heart"></i>
+      </span>
+    </div>
+    <div class="recipe-info">
+      <h1>{{ recipe.title }}</h1>
+      <h2>Ingredients</h2>
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient.text }} 
+        </li>
+      </ul>
+      
+      <h2>More info:</h2>
+      <a href="recipe.source">{{ recipe.source }}</a>
+    
+      <div class="rating">
+        <h3>Rate this recipe:</h3>
+        <span class="star"
+          *ngFor="let star of getStarRatingArray(recipe.rating)"
+          [class.fa]="star.rating !== 0"
+          [class.fa-star-half-alt]="star.rating === 0.5"
+          [class.far]="star.rating === 0"
+          [class.fa-star]="star.rating === 0||star.rating===1"
+          (click)="rateRecipe(star.i)">
+        </span>
+        
+        <button class="btn btn-primary" (click)="caloriesToday()">I made this today!</button>
+      </div>
+      </div>
+    </div>
+  </div>

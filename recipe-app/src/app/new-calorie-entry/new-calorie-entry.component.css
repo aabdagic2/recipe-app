@@ -1,0 +1,79 @@
+
+
+.button:hover {
+  background-color: #2d566b;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #f7c413;
+    color: #fff;
+    border: none;
+  }
+  
+  .btn-cancel {
+    background-color: red;
+    color: #fff;
+    border: none;
+  }
+  
+  
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: black;
+  display: flex;
+}
+
+.modal {
+  margin: auto;
+  width: 90%;
+  max-width: 40rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  opacity: 1;
+}
+
+.modal-header,
+.modal-content {
+  padding: 1.5rem;
+  opacity: 1;
+}

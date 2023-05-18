@@ -1,0 +1,31 @@
+<head>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+  </head>
+  
+<div class="calorie-tracker-container">
+    <div class="calorie-tracker-header">
+        <h1>Calories Today</h1>
+      <h2>Goal: 2000 calories</h2>
+      <button (click)="openDialog()">New Entry</button>
+    </div>
+    <div class="calorie-tracker-body">
+      <div class="recipe-cards">
+        <div *ngFor="let recipe of recipes" class="recipe-card">
+          <a [routerLink]="['/recipes', recipe.name]">
+            <img [src]="recipe.image" alt="{{recipe.name}} image">
+            <div class="recipe-details">
+              <h2>{{recipe.name}}</h2>
+              <h3>{{recipe.description}}</h3>
+              <div class="star-rating">
+                <ng-container *ngFor="let star of getStarRatingArray(recipe.rating)">
+                    <span class="star"  [class.fa]="star !== 0" [class.fa-star-half-alt]="star === 0.5"[class.far]="star===0" [class.fa-star]="star === 0||star===1"></span>
+                </ng-container>
+              </div>
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+   
