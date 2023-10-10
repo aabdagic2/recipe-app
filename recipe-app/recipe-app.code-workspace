@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "recipe-app",
+			"path": "."
+		},
+		{
+			"name": "front-recepata",
+			"path": "../../../frontrecepata/front-recepata"
+		}
+	],
+	"settings": {}
+}
