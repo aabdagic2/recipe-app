@@ -92,3 +92,4 @@ C:\Users\amina\Desktop\RecipeApp\RecipeAppAPI\RecipeAppAPI\bin\Debug\net6.0\runt
 C:\Users\amina\Desktop\RecipeApp\RecipeAppAPI\RecipeAppAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\amina\Desktop\RecipeApp\RecipeAppAPI\RecipeAppAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\amina\Desktop\RecipeApp\RecipeAppAPI\RecipeAppAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\amina\Desktop\RecipeApp\RecipeAppAPI\RecipeAppAPI\bin\Debug\net6.0\MySql.Data.EntityFrameworkCore.dll

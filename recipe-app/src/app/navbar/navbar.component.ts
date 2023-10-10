@@ -9,7 +9,7 @@ export class NavbarComponent {
   menuItems = [
     { title: 'Home', link: '' },
     { title: 'Library', link: '/saved-recipes' },
-    { title: 'Calories Today', link: '/calories-today' }
+    { title: 'My Diary', link: '/calories-today' }
   ];
 }
 

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RecipeAppAPI",
+    "\\RecipeAppAPI\\RecipeAppAPI",
+    "\\RecipeAppAPI\\RecipeAppAPI\\Migrations",
+    "\\RecipeAppAPI\\RecipeAppAPI\\Models",
+    "\\RecipeAppAPI\\RecipeAppAPI\\obj"
   ],
-  "SelectedNode": "\\RecipeAppAPI.sln",
+  "SelectedNode": "\\RecipeAppAPI\\RecipeAppAPI\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
