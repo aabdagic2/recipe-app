@@ -1,40 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
-  </head>
-<div class="recipe-details">
-    <div *ngIf="recipe">
-    <div class="recipe-image">
-      <img [src]="recipe.image" [alt]="recipe.title" />
-      <span class="save-button" [class.saved-button]="isSaved" (click)="saveRecipe()">
-        <i class="far fa-heart"></i>
-      </span>
-    </div>
-    <div class="recipe-info">
-      <h1>{{ recipe.title }}</h1>
-      <h2>Ingredients</h2>
-      <ul>
-        <li *ngFor="let ingredient of recipe.ingredients">
-          {{ ingredient.text }} 
-        </li>
-      </ul>
-      
-      <h2>More info:</h2>
-      <a href="recipe.source">{{ recipe.source }}</a>
-    
-      <div class="rating">
-        <h3>Rate this recipe:</h3>
-        <span class="star"
-          *ngFor="let star of getStarRatingArray(recipe.rating)"
-          [class.fa]="star.rating !== 0"
-          [class.fa-star-half-alt]="star.rating === 0.5"
-          [class.far]="star.rating === 0"
-          [class.fa-star]="star.rating === 0||star.rating===1"
-          (click)="rateRecipe(star.i)">
-        </span>
-        
-        <button class="btn btn-primary" (click)="caloriesToday()">I made this today!</button>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="recipe-details">
+    <div *ngIf="recipe" class="recipe-card">
+      <div class="image-container">
+      <div class="recipe-image">
+        <img [src]="recipe.image" [alt]="recipe.title" />
+        <div class="circle-background">
+          <i [ngClass]="{'fas': recipe.saved, 'far': !recipe.saved, 'full-heart': recipe.saved, 'empty-heart': !recipe.saved}" class="fa-heart" (click)="saveRecipe()"></i>
+        </div>
+       
       </div>
+     
       </div>
     </div>
   </div>
+  <div class="custom-left-margin">
+    <div class="recipe-details">
+      <div *ngIf="recipe">
+        <h1>{{ recipe.title }}</h1>
+        <div class="diet">
+          <div class="diet-labels">
+            <ng-container *ngFor="let label of recipe.dietLabels">
+              <span class="badge">{{ label }}</span>
+            </ng-container>
+            <ng-container *ngFor="let label of recipe.healthLabels">
+              <span class="badge">{{ label }}</span>
+            </ng-container>
+          </div>
+          <br/>
+          <div class="centered-ingredients">
+          <h2><span class="leaf-icon"></span> Ingredients <span class="leaf-icon"></span></h2>
+          <ul class="green-leaves-list">
+            <li *ngFor="let ingredient of recipe.ingredients">
+              <div class="ingredient-container">
+                <button class="shopping-cart-button" (click)="addToShoppingCart(recipe.url, ingredient)"
+        [ngClass]="{'added-to-cart': ingredient.isInCart, 'not-added-to-cart': !ingredient.isInCart}" title="Add ingredient to shopping cart">
+  <i class="fas fa-plus"></i>
+</button>
+
+                <span class="ingredient-text">{{ ingredient.text }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+          <h2>More info:</h2>
+          <span class="ingredient-text">You can find instructions and more here: </span>
+          <a href="{{ recipe.url }}">{{ recipe.source }}</a>
+          <br/>
+          <br/>
+          <button class="green-button" (click)="caloriesToday()">
+            I made this today!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="chart-title">Nutrition Chart</h2>
+  <div class="chart-container">
+    
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div>
+</body>
+</html>

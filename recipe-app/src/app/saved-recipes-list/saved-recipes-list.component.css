@@ -1,120 +1,346 @@
 .search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  input[type=text] {
-    padding: 10px;
-    width: 60%;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 16px;
-  }
-  button[type=submit] {
-    border: none;
-    background-color: #FF9800;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button[type=submit]:hover {
-    background-color: #F57C00;
-  }
-  
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type=text] {
+  padding: 10px;
+  width: 60%;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  font-size: 16px;
+}
+button[type=submit] {
+  border: none;
+  background-color: #5ba006;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type=submit]:hover {
+  background-color: #5ba006;
+}
+
 .recipe-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .recipe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-  .recipe-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .recipe-card {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    margin: 20px;
-    width: 300px;
-  }
-  .recipe-card img {
-    width: 100%;
-    height: auto;
-  }
-  .recipe-details {
-    padding: 20px;
-  }
-  .recipe-details h2 {
-    font-size: 24px;
-    margin-top: 0;
-  }
-  .rating {
-    color: #FFD700;
-    font-size: 20px;
-  }
-  .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .search-container input[type="text"] {
-    width: 500px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 4px;
-    background-color: #f2f2f2;
-    font-size: 16px;
-  }
-  .recipe-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
-    overflow: hidden;
-    width: 300px;
-  }
-  
-  .recipe-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .recipe-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .rating {
-    color: orange;
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-  
-  .fas.fa-star {
-    margin-right: 5px;
-  }
-  
-  .filled {
-    color: gold;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1; /* Ensure it's displayed below the filter list */
+}
+.recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.recipe-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.recipe-card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 300px;
+}
+.recipe-image {
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Adjust the max width as needed */
+}
+
+.recipe-image img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none; /* Remove underlines */
+  color: rgb(28, 28, 28); /* Set text color to black */
+}
+.naslov {
+text-align: center; /* Center the title */
+height: 80px;
+font-size: 20px;
+font-weight: bold;
+}
+.custom-link {
+text-decoration: none;
+color: #5ba006;
+padding: 20px;
+}
+
+.custom-link:hover {
+text-decoration: underline;
+color: #5ba006;
+}
+.tags {
+margin-top: 10px;
+text-align: center;
+height: 65px;
+}
+
+.tag {
+display: inline-block;
+background-color: #e0e0e0; /* Gray background color */
+color: #333; /* Dark gray text color */
+padding: 5px 10px;
+margin: 2px;
+border-radius: 10px;
+}
+.recipe-card img {
+  width: 100%;
+  height: auto;
+}
+.recipe-details {
+  padding: 20px;
+}
+.recipe-details h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+.rating {
+  color: #FFD700;
+  font-size: 20px;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-container input[type="text"] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-size: 16px;
+}
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  overflow: hidden;
+  width: 300px;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.rating {
+  color: orange;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.fas.fa-star {
+  margin-right: 5px;
+}
+
+.filled {
+  color: gold;
+}
+/* Style for the circle background */
+.circle-background {
+position: absolute;
+top: 10px;
+right: 10px;
+width: 40px; /* Adjust the circle size */
+height: 40px; /* Adjust the circle size */
+background-color: white;
+border-radius: 50%; /* Create a circle shape */
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow */
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer; /* Add a pointer cursor for interactivity */
+}
+
+/* Style for the heart icon */
+.fa-heart {
+font-size: 24px; /* Adjust the heart size */ /* Green color */
+transition: color 0.3s; /* Smooth color transition */
+}
+
+/* Style for the full heart */
+.full-heart {
+color: #ff0000; /* Red color when saved */
+}
+
+/* Style for the empty heart */
+.empty-heart {
+color: #5b9e0b; /* Green color when not saved */
+}
+.rounded-rectangle {
+position: absolute;
+top: 10px;
+left: 5px;
+background-color: white;
+padding: 5px;
+border-radius: 20px;
+border-color: #333;
+color: #333;
+}
+/* Style the container as a dropdown */
+.filter-dropdown {
+position: relative;
+top: 0;
+right: 0;
+z-index: 2; /* Ensure it's displayed above the recipes list */
+/* Use flexbox to control the filter button and content */
+padding-right: 100px;
+}
+
+/* Style the dropdown button (to look like a select box) */
+.filter-dropdown-button {
+background-color: #5b9e0b;
+color: white;
+border: none;
+cursor: pointer;
+font-size: 14px;
+height: 30px;
+border-radius: 5px;
+}
+
+/* Style the dropdown content (hidden by default) */
+.filter-dropdown-content {
+visibility: hidden;
+position: absolute;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+border: 1px solid #ccc;
+width: auto; /* Adjust the width based on content */
+height: auto; /* Adjust the height based on content */
+z-index: 3; /* Ensure it's displayed above the recipes list */
+display: inline-block; /* Make it as wide as its content */
+}
+
+/* Style the dropdown options */
+.filter-dropdown-content label {
+display: block;
+padding: 4px 8px;
+text-decoration: none;
+color: #333;
+cursor: pointer;
+transition: background-color 0.3s;
+font-size: 12px;
+}
+
+/* Change the background color of options on hover */
+.filter-dropdown-content label:hover {
+background-color: #ddd;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.active {
+visibility: visible;
+position: absolute;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+border: 1px solid #ccc;
+width: 480px; /* Adjust the width based on content */
+height: auto; /* Adjust the height based on content */
+z-index: 3; /* Ensure it's displayed above the recipes list */
+display: inline-block; /* Make it as wide as its content */
+background-color: white;
+border-radius: 5px;
+top:100%;
+font-size: 14px;
+column-gap: 10px; /* Adjust the gap between columns */
+padding: 10px; /* Add space around columns */
+}
+.naslov-health{
+color: #5b9e0b;
+font-size: 16px;
+padding: 0px;
+font-weight: bold;
+}
+.inputs{
+display: inline-block;
+padding: 10px;
+}
+.update-cal{
+margin-left: 5%;
+margin-right: 95%;
+color: white;
+padding-left: 100%;
+}
+.cal{
+background-color: #5b9e0b;
+border-radius: 5px;
+font-size: 12px;
+font-weight: bold;
+color: white;
+height: 25px;
+}
+.naslov-diet{
+color: #5b9e0b;
+font-size: 16px;
+padding: 0px;
+font-weight: bold;
+}
+/* Style the column to create a three-column layout */
+.column {
+display: inline-block;
+vertical-align: top;
+width: 120px; /* Adjust the width and spacing as needed */
+box-sizing: border-box; /* Ensure padding is included in the width */
+padding: 10px;
+max-height: auto;
+}
+
+/* Style the column content to scroll beneath the header */
+.column-content {
+margin-top: 5px;
+max-height: auto;
+width: 150px; /* Adjust the max height as needed */
+padding-right: 35px;
+padding-left: 20px;
+
+}
+.column-content2 {
+margin-top: 25px;
+max-height: auto;
+width: 150px; /* Adjust the max height as needed */
+padding-left: 38px;
+padding-right: 30px;
+}
+.header{
+max-width: 200px;
+}
+/* Style the headers to be fixed at the top */
+.naslov-health, .naslov-diet {
+position: sticky;
+top: 0;
+background-color: #f9f9f9;
+padding: 0px;
+z-index: 2;
+padding-left: 15px;
+}
+input[type=checkbox]:checked {
+accent-color: #5b9e0b;
+color: #ffffff !important;
+}
+input[type='checkbox']:after {
+  box-shadow: none !important;
+}

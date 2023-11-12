@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page in HTML</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+<form action="">
+    <!-- Headings for the form -->
+
+        <p class="text-center h2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Become a FitFoodie!</p>
+
+  
+    <!-- Main container for all inputs -->
+    <div class="mainContainer">
+      <!-- Profile Image -->
+      <div class="row">
+        <div class="col">
+            <p class="r">Profile image</p></div></div>
+     
+      <div class="row">
+        <div class="col">
+      <input type="file" accept="image/*" id="profile-image" [(ngModel)]="profileImage" name="profile-image" (change)="onFileChange($event)"></div>
+      <!-- Display the selected image -->
+      <div class="col">
+      <img class="profile-preview" [src]="imageSrc" *ngIf="imageSrc" style="height: 70px; width: auto"></div></div>
+  
+  
+      <!-- First Name -->
+      <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="First Name" name="first-name" [(ngModel)]="name" required>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Last Name" name="last-name" [(ngModel)]="lastName" required>
+        </div>
+    </div>
+      
+     <div class="row"><div class="col"><input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" required></div></div>
+   
+      <div class="row">
+        <div class="col">
+            <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" required>
+        </div>
+        <div class="col">
+            <input type="password" class="form-control" placeholder="Confirm password" name="confirm-password" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+      <input type="number" class="form-control" placeholder="Calorie Goal" name="calorie-goal" [(ngModel)]="calorieGoal" required></div></div>
+  
+      <!-- Subcontainer for the checkbox and forgot password link -->
+      <div class="row">
+        <div class="col">
+          <p class="text-danger" style="font-weight: bold;">{{ error }}</p>
+        </div>
+      </div>
+  
+      <!-- Submit button -->
+      <button type="submit" (click)="onRegister()">Sign Up</button>
+  
+      <!-- Sign in link -->
+      <p class="register">Already a member? <a href="/login">Log In here!</a></p>
+    </div>
+  </form>
+  </body>
+  </html>
+  

@@ -13,9 +13,15 @@ import {MatDialogModule} from '@angular/material/dialog'
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component'
 import { HttpClientModule } from '@angular/common/http';
+import { RecipeFilterComponent } from './recipe-filter/recipe-filter.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthService } from './my-service.service';
 const appRoutes: Routes = [
   { path: '', component: RecipeListComponent },
   { path: 'recipes/:id', component: RecipeListComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
@@ -26,7 +32,11 @@ const appRoutes: Routes = [
     SavedRecipesComponent,
     CaloriesTodayComponent,
     NewCalorieEntryComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    RecipeFilterComponent,
+    LoginComponent,
+    SignupComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

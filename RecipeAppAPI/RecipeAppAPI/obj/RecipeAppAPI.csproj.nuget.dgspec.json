@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amina\\Desktop\\RecipeApp\\RecipeAppAPI\\RecipeAppAPI\\RecipeAppAPI.csproj": {}
+    "C:\\Users\\amina\\Documents\\Projekti\\recipeappAPI\\recipeappAPI\\recipeappAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amina\\Desktop\\RecipeApp\\RecipeAppAPI\\RecipeAppAPI\\RecipeAppAPI.csproj": {
+    "C:\\Users\\amina\\Documents\\Projekti\\recipeappAPI\\recipeappAPI\\recipeappAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amina\\Desktop\\RecipeApp\\RecipeAppAPI\\RecipeAppAPI\\RecipeAppAPI.csproj",
-        "projectName": "RecipeAppAPI",
-        "projectPath": "C:\\Users\\amina\\Desktop\\RecipeApp\\RecipeAppAPI\\RecipeAppAPI\\RecipeAppAPI.csproj",
+        "projectUniqueName": "C:\\Users\\amina\\Documents\\Projekti\\recipeappAPI\\recipeappAPI\\recipeappAPI.csproj",
+        "projectName": "recipeappAPI",
+        "projectPath": "C:\\Users\\amina\\Documents\\Projekti\\recipeappAPI\\recipeappAPI\\recipeappAPI.csproj",
         "packagesPath": "C:\\Users\\amina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amina\\Desktop\\RecipeApp\\RecipeAppAPI\\RecipeAppAPI\\obj\\",
+        "outputPath": "C:\\Users\\amina\\Documents\\Projekti\\recipeappAPI\\recipeappAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amina\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,45 +40,55 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.23.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.23, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.23, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "MySql.Data": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.33, )"
+              "version": "[6.0.16, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             },
-            "System.Data.SqlClient": {
+            "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[4.8.5, )"
+              "version": "[7.0.2, )"
             }
           },
           "imports": [
@@ -100,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

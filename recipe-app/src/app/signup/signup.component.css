@@ -1,0 +1,263 @@
+html, body {
+  font-family: Arial;
+  color: whitesmoke;
+  height: 100%; /* Set the height to 100% to fill the whole screen */
+  margin: 15px; /* Remove default margin */
+  background: url('../../assets/pozadina.jpg'); /* Replace 'path/to/your-image.jpg' with the actual path to your image */
+  background-size: cover; /* Optional: Scale the background image to cover the entire element */
+  background-repeat: no-repeat; /* Optional: Prevent the background image from repeating */
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  label {
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Adjust the margin between labels as needed */
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="number"] {
+   /* Adjust the maximum width as needed */
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px 12px; /* Adjust the padding as needed */
+    box-sizing: border-box;
+    height: 30px;
+  }
+  
+  body 
+  {
+    font-family:sans-serif; 
+    align-items: center;
+    color:whitesmoke;
+    height: 600px;
+  }
+  
+  
+  h1{
+      text-align: center;
+  }
+  
+  
+
+  form{
+      width:35rem;
+      margin: auto;
+      color:whitesmoke;
+      padding: 10px;
+      background-color: #5c9e0bee;
+      border-radius: 10px ;
+      align-items: center;
+  }
+  
+  input{
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      padding: 15px 18px;
+      box-sizing: border-box;
+    }
+  
+  button {
+      background-color: #030804;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 5px;
+      margin: 7px 0;
+      width: 100%;
+      font-size: 18px;
+    }
+  
+  button:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+    
+    .headingsContainer{
+        text-align: center;
+    }
+    .mainContainer{
+        padding: 16px;
+    }
+    .subcontainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .subcontainer a{
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    span.forgotpsd a {
+        float: right;
+        color: whitesmoke;
+        padding-top: 16px;
+        text-decoration: underline;
+      }
+    
+    .forgotpsd a{
+        color: #5b9e0b;
+        text-decoration: underline;
+      }
+      .name-row {
+        display: flex;
+        align-items: center;
+      }
+      
+      .name-row input {
+        flex: 1;
+        margin-right: 10px;
+        padding: 10px;
+        width: 30%;
+        border-radius: 5px;
+      }
+      
+      
+      .name-input label {
+        display: block;
+        font-size: 14px; /* Adjust the font size as needed */
+        margin-bottom: 5px; /* Adjust the margin between labels as needed */
+      }
+      
+    .forgotpsd a:link{
+        text-decoration: underline;
+      }
+    
+      .register{
+        color: white;
+        text-align: center;
+      }
+      .r{
+        color: white;
+        text-align: left;
+      }
+      .register a{
+        color: rgb(74, 146, 235);
+      }
+      
+      .register a:link{
+        text-decoration: underline;
+      }
+      @media screen and (max-width: 600px) {
+        form{
+          width: 25rem;
+        }
+      
+      }
+      
+      @media screen and (max-width: 400px) {
+        form{
+          width: 20rem;
+        }
+      }
+      body 
+      {
+        font-family:sans-serif; 
+  
+        color:whitesmoke;
+      }
+      
+      
+      h1{
+          text-align: center;
+      }
+      
+      
+    
+      
+      input[type=text], input[type=password]{
+          width: 100%;
+          margin: 10px 0;
+          border-radius: 5px;
+          padding: 15px 18px;
+          box-sizing: border-box;
+        }
+      
+      button {
+          background-color: #030804;
+          color: white;
+          padding: 14px 20px;
+          border-radius: 5px;
+          margin: 7px 0;
+          width: 100%;
+          font-size: 18px;
+        }
+      
+      button:hover {
+          opacity: 0.6;
+          cursor: pointer;
+      }
+      
+      .headingsContainer{
+          text-align: center;
+      }
+      .forgotpsda{
+        text-decoration: underline;
+      }
+      .headingsContainer p{
+          color: gray;
+      }
+      .mainContainer{
+          padding: 16px;
+      }
+      
+      
+      .subcontainer{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+      }
+      
+      .subcontainer a{
+          font-size: 16px;
+          margin-bottom: 12px;
+      }
+      
+      span.forgotpsd a {
+          float: right;
+          color: whitesmoke;
+          padding-top: 16px;
+          text-decoration: underline;
+        }
+      
+      .forgotpsd a{
+          color: black;
+          text-decoration: underline;
+        }
+        
+      .forgotpsd a:link{
+          text-decoration: none;
+        }
+      
+        .register{
+          color: white;
+          text-align: center;
+        }
+        
+        .register a{
+          color: black;
+          text-decoration: underline;
+        }
+        
+        .register a:link{
+          text-decoration: underline;
+        }
+      
+        /* Media queries for the responsiveness of the page */
+        @media screen and (max-width: 600px) {
+          form{
+            width: 25rem;
+          }
+        }
+        
+        @media screen and (max-width: 400px) {
+          form{
+            width: 20rem;
+          }
+        }
+                        

@@ -1,12 +1,47 @@
-
-   <header> <div class="logo">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-qOgNwlJZ/fXdqnA/aeGpLHyWgFkwL7SL41T+qS4gr6rKuYcGQK4qOKBluy+Sf0Nl+pOpQoukD2LGQc+hyQiq9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+  </head>
+<header>
+  <div class="logo">
     <img src="../../assets/fitfoodie.png" alt="Logo">
+  </div>
+  <nav>
+    <ul class="menu">
+      <li *ngFor="let menuItem of menuItems">
+        <a [routerLink]="menuItem.link">{{ menuItem.title }}</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="auth-buttons">
+    <div *ngIf="!isLoggedIn">
+      <a [routerLink]="['/login']">
+        <button class="login-button">Login</button>
+      </a>
+      <a [routerLink]="['/signup']">
+        <button class="signup-button">Signup</button>
+      </a>
     </div>
-    <nav>
-  <ul class="menu">
-    <li *ngFor="let menuItem of menuItems">
-      <a [routerLink]="menuItem.link">{{ menuItem.title }}</a>
-    </li>
-  </ul>
-</nav>
+    <div *ngIf="isLoggedIn">
+      <!-- Display the user information when the user is logged in -->
+      
+      <div class="subnav">
+        
+          <div *ngIf="isLoaded">
+            <div class="un">
+        <div class="usr-profile" (click)="toggleLogout()">
+          <img [src]="profileImageData" alt="User Profile" class="rounded-image" /></div>
+          <div class="name" (click)="toggleLogout()">
+          <p style="font-weight: bold;">{{ userFirstName }} {{ userLastName }}</p></div>
+      
+        <div class="subnav-content" *ngIf="showLogout">
+          <button (click)="logout()">Logout</button>
+        </div></div>
+      </div>
+      </div>
+    </div>
+  </div>
 </header>

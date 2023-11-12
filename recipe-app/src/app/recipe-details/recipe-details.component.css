@@ -1,70 +1,256 @@
-.recipe-details {
-    display: flex;
+body {
+  min-width: 1000px; /* Adjust this value to your desired minimum width */
+ /* Reset default margin to ensure the full width is used */
+ padding: 20px;
+}
+@media (max-width: 768px) {
+  .recipe-details {
+    text-align: center; /* Center align for small screens */
   }
-  
+
   .recipe-image {
-    flex: 0 0 30%;
-    max-width: 600px;
+    margin-bottom: 20px; /* Add some spacing below the image */
   }
-  
-  .recipe-image img {
-    max-width: 100%;
-    height: auto;
+
+  .diet-labels {
+    justify-content: center; /* Center diet labels */
   }
-  
-  .recipe-info {
-    flex: 1;
-    padding: 20px;
-  }
-  button {
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: right;
-  }
-  
-  .btn-primary {
-    background-color: #f7c413;
-    color: #fff;
-    border: none;
-    display: flex;
-    justify-content: right;
-    padding-top: 10px;
-  }
-  .recipe-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-info h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-info ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  .recipe-info li {
-    margin-bottom: 5px;
-  }
-  
-  .recipe-info p {
-    margin-top: 10px;
-  }
-  
-  .rating {
-    margin-top: 20px;
-  }
-  
-  .star {
-    font-size: 24px;
-    color: #f7c413;
-    cursor: pointer;
-  }
-  
+
+  .green-leaves-list {
+    padding-left: 10px; /* Add some padding to the left of ingredients list */
+  }}
+.recipe-image{
+  /*display: inline-block;*/
+  position: relative;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+  float: none;
+  padding: 10px;
+  max-height: 500px;
+  height: 500px;
+  width: auto;
+}
+.recipe-image img {
+  max-height: 500px;
+  width: 400px; /* Maintain aspect ratio */
+  height: auto; /* Allow the image to adjust its height */
+}
+.fa-heart {
+  font-size: 24px; /* Adjust the heart size */
+  color: #5b9e0b; /* Green color */
+  transition: color 0.3s; /* Smooth color transition */
+}
+.circle-background {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px; /* Adjust the circle size */
+  height: 40px; /* Adjust the circle size */
+  background-color: white;
+  border-radius: 50%; /* Create a circle shape */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Add a pointer cursor for interactivity */
+}
+.recipe-image {
+  position: relative; /* Ensure the button stays inside the container */
+  border: 2px solid #ddd; /* Add a border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  margin-right: 20px; /* Add margin to separate it from other content */
+  float: left; /* Align to the left */
+  padding: 10px; /* Add padding to the container if needed */
+  max-height: 500px;
+  height: 500px;
+  width: auto;
+}
+.save-button {
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+/* Style for recipe title and ingredients */
+h1 {
+  font-size: 28px;
+  margin-top: 0;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  color: #5b9e0b;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Style for recipe source link and "I made this today" button */
+a {
+  font-size: 18px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #5b9e0b;
+  border: none;
+}
+
+/* Adjust the heart size */
+.fa-heart {
+  font-size: 24px;
+  color: #5b9e0b;
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+/* Style for the full heart icon */
+.saved-button .fa-heart {
+  color: #ff0000;
+}
+.full-heart{
+  color: #ff0000;
+}
+/* Custom left margin */
+/* Custom left margin */
+.custom-left-margin {
+  margin-left: 30px; /* Adjust the margin size as needed */
+  text-align: center;
+}
+
+/* Style for the green leaves list */
+.green-leaves-list {
+  list-style: none;
+  padding-left: 0;
+}
+.leaf-icon::before {
+  content: "\f06c"; /* Unicode character for the leaf icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #5b9e0b; /* Green color */
+  position: relative;
+  top: 50%; /* Adjust vertical alignment to center */
+  transform: translateY(-50%); /* Center vertically */
+}
+.ingredient-container {
+  display: flex;
+  align-items: center;
+}
+.centered-ingredients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.shopping-cart-button {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white; /* Initial white border */
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  border-color: #5b9e0b;
+  margin-right: 10px;
+}
+
+
+.added-to-cart {
+  background-color: #5b9e0b; /* Green background when added to cart */
+  border-color: #5b9e0b; /* Green border when added to cart */
+  color: white; /* White text color when added to cart */
+}
+
+.not-added-to-cart {
+  background-color: white; /* White background when not added to cart */
+  border-color: #5b9e0b; /* Green border when not added to cart */
+  color: #5b9e0b; /* Green text color when not added to cart */
+}
+
+
+
+/* Style for the ingredient text */
+.ingredient-text {
+  font-size: 18px; /* Adjust the font size as needed */
+  color: #333; /* Text color */
+}
+.nutrient-circle {
+  width: 100px; /* Adjust the width of the circle */
+  height: 100px; /* Adjust the height of the circle */
+  border-radius: 50%; /* Create a circle */
+  background-color: #5b9e0b; /* Green background color */
+  color: #fff; /* Text color */
+  text-align: center;
+  margin: 20px auto; /* Center the circle horizontally and add margin */
+}
+
+a:hover{
+  text-decoration: underline;
+}
+/* Style for the nutrient value */
+.nutrient-value {
+  font-size: 24px; /* Adjust the font size of the value */
+  line-height: 1.2; /* Ensure proper vertical alignment */
+  margin-top: 10px;
+}
+.green-button {
+  background-color: #5b9e0b;
+  color: #333;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px 4px 4px 4px;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin to separate the button from the image */
+}
+
+.nutrition{
+  color: black;
+}
+.chart-title {
+  display: block;
+  margin-top: 450px;  /* Adjust the title's font size */
+  text-align: center;
+ }
+.chart-container {
+  display: block;
+ /* Adjust the margin-top value to control the spacing between the top div and the chart-container */
+}
+
+.diet{
+  height: 50px;
+}
+.diet-labels {
+  display: flex;
+  flex-wrap: wrap; /* Wrap labels to the next line if they don't fit */
+  gap: 4px; /* Adjust the gap between labels as needed */
+  justify-content: center;
+}
+
+.badge {
+  background-color: #ccc;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 20px;
+  white-space: nowrap; /* Prevent labels from breaking into multiple lines */
+  margin-right: 4px; /* Adjust the margin between labels as needed */
+}
+
+.inline-badge {
+  display: inline-block; /* Display labels in one line */
+  margin-right: 4px; /* Adjust the margin between labels as needed */
+}
+/* Style for the nutrient legend */
+.nutrient-legend {
+  font-size: 16px; /* Adjust the font size of the legend */
+}

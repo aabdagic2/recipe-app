@@ -1,34 +1,120 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-qOgNwlJZ/fXdqnA/aeGpLHyWgFkwL7SL41T+qS4gr6rKuYcGQK4qOKBluy+Sf0Nl+pOpQoukD2LGQc+hyQiq9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <head>
-   
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-qOgNwlJZ/fXdqnA/aeGpLHyWgFkwL7SL41T+qS4gr6rKuYcGQK4qOKBluy+Sf0Nl+pOpQoukD2LGQc+hyQiq9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
   </head>
+
   
-<div class="container">
-  <div class="search-container">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Search recipes...">
-    <button type="submit" (click)="updateItems()"><i class="fas fa-search"></i></button>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10 col-sm-12">
-      <div class="recipe-cards">
-        <div *ngFor="let recipe of recipes" class="recipe-card">
-          <a [routerLink]="['/recipe-details', recipe.title]">
-            <img [src]="recipe.image" alt="{{recipe.title}} image">
-            <div class="recipe-details">
-              <h2>{{recipe.title}}</h2>
-              <h3>{{recipe.description}}</h3>
-              <div class="star-rating">
-                <ng-container *ngFor="let star of getStarRatingArray(recipe.rating)">
-                    <span class="star"  [class.fa]="star !== 0" [class.fa-star-half-alt]="star === 0.5"[class.far]="star===0" [class.fa-star]="star === 0||star===1"></span>
-                </ng-container>
+  <div class="container">
+    
+    <div class="search-container">
+      <div class="filter-dropdown">
+        <button class="filter-dropdown-button" (click)="toggleDropdown()"><i class="fas fa-filter"></i></button>
+        <div [ngClass]="{'filter-dropdown-content': !dropdownActive, 'active': dropdownActive}">
+          <div class="column">
+            <div class="naslov-health">Health</div>
+            <div class="column-content">
+            <div *ngFor="let tag of availableTags; let i = index">
+              <label style="font-size: 12px;display: flex; align-items: center;">
+                <input
+                  type="checkbox"
+                  [value]="tag"
+                  (change)="filterRecipesByHealth(tag)"
+                  style="margin-right: 5px;"
+                />
+                {{ tag }}
+              </label>
+            </div>
+            </div>
+          </div>
+          <div class="column"><div class="column-content4" style="margin-top: 30px;">
+            <div *ngFor="let tag of availableTags2; let i = index">
+              <label style="font-size: 12px;display: flex; align-items: center;width: 180px;">
+                <input
+                  type="checkbox"
+                  [value]="tag"
+                  (change)="filterRecipesByHealth(tag)"
+                  style="margin-right: 5px;"
+                />
+                <span style="float: left;">{{ tag }}</span>
+              </label>
+            </div>
+            </div></div>
+          <div class="column">
+           <div class="naslov-diet">Diet</div>
+            <div class="column-content">
+              <div *ngFor="let tag of availableDietTags; let i = index">
+                <label style="font-size: 12px;display: flex; align-items: center;">
+                  <input
+                    type="checkbox"
+                    [value]="tag"
+                    (change)="filterRecipesByHealth(tag)"
+                    style="margin-right: 5px;"
+                  />
+                   {{tag }}
+                </label>
               </div>
-                
+            </div>
+          </div>
+          <div class="calorie-filter">
+            <div class="naslov-diet">Calories</div>
+            <div class="column-content">
+              <div class="inputs">
+              <label style="font-size: 12px;">
+                Min Calories:</label>
+                <input type="number" [(ngModel)]="minCalories" />
               </div>
+              <div class="inputs">
+              <label style="font-size: 12px;">
+                Max Calories:    </label>
+                <input type="number" [(ngModel)]="maxCalories" />
           
-          </a>
+              </div>
+              <div class="update-cal">
+              <button class="cal" (click)="updateCalories()">Refine</button></div>
+            </div>
+          </div>
+      
         </div>
       </div>
+      
+        <input class="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search recipes...">
+        <button class="search-button" type="submit" (click)="updateItems()"><i class="fas fa-search"></i></button>
     </div>
-  </div>
+    
+            <div class="recipe-cards">
+                <div *ngFor="let recipe of filteredRecipes" class="recipe-card">
+                    <a [routerLink]="['/recipe-details', recipe.title]" style="color: rgb(28, 28, 28);">
+                      <div class="recipe-image">
+                        <img [src]="recipe.image" alt="{{recipe.title}} image">
+                        <div class="rounded-rectangle">
+                          <i class="icon fas fa-clock" style="padding: 5px;"></i> <!-- Time icon -->
+                          <span>{{recipe.time}} min  </span>
+                          <i class="icon fas fa-user" style="padding: 5px;"></i> <!-- Person icon -->
+                          <span>{{recipe.servings}} servings</span>
+                      </div>
+                        </div>
+
+                        <div class="recipe-details">
+                            <div class="naslov">{{recipe.title}}</div>
+                            <div class="cal-link">Calories: <span style="color: #5ba006;">{{recipe.calories}}</span></div>
+                            
+                            <div class="tags">
+                              <span class="tag" *ngFor="let tag of recipe.dietLabels">{{tag}}</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class="recipe-image">
+                      <div *ngIf="isLoggedIn">
+                    <div class="circle-background">
+                      <!-- Add heart icon with click event -->
+                      <i [ngClass]="{'fas': recipe.saved, 'far': !recipe.saved, 'full-heart': recipe.saved, 'empty-heart': !recipe.saved}" class="fa-heart" (click)="toggleSaveRecipe(recipe)"></i>
+                    </div></div></div>
+                    <a [href]="recipe.url" target="_blank" class="custom-link">Recipe Link</a>
+                </div>
+            </div>
+       
 </div>

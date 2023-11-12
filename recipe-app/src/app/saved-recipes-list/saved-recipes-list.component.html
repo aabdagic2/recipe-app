@@ -2,26 +2,42 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
   </head>
+  <div class="container">
 <div class="search-container">
-<input type="text"  placeholder="Search saved recipes...">
-<button type="submit"><i class="fas fa-search"></i></button>
+  <input class="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search recipes...">
+<button class="search-button" type="submit" (click)="updateItems()"><i class="fas fa-search"></i></button>
 </div>
-<div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10 col-sm-12">
 <div class="recipe-cards">
   <div *ngFor="let recipe of savedRecipes" class="recipe-card">
-    <a [routerLink]="['/recipe-details', recipe.title]">
-      <img [src]="recipe.image" alt="{{recipe.title}} image">
-      <div class="recipe-details">
-        <h2>{{recipe.title}}</h2>
-              <h3>{{recipe.description}}</h3>
-              <div class="star-rating">
-                <ng-container *ngFor="let star of getStarRatingArray(recipe.rating)">
-                    <span class="star"  [class.fa]="star !== 0" [class.fa-star-half-alt]="star === 0.5"[class.far]="star===0" [class.fa-star]="star === 0||star===1"></span>
-                </ng-container>
-              </div>
-      </div>
-    </a>
-  </div>
-</div></div></div>
+      <a [routerLink]="['/recipe-details', recipe.title]" style="color: rgb(28, 28, 28);">
+        <div class="recipe-image">
+          <img [src]="recipe.image" alt="{{recipe.title}} image">
+          <div class="rounded-rectangle">
+            <i class="icon fas fa-clock" style="padding: 5px;"></i> <!-- Time icon -->
+            <span>{{recipe.time}} min  </span>
+            <i class="icon fas fa-user" style="padding: 5px;"></i> <!-- Person icon -->
+            <span>{{recipe.servings}} servings</span>
+        </div>
+          </div>
 
+          <div class="recipe-details">
+              <div class="naslov">{{recipe.title}}</div>
+              <div class="cal-link">Calories: <span style="color: #5ba006;">{{recipe.calories}}</span></div>
+              
+              <div class="tags">
+                <span class="tag" *ngFor="let tag of recipe.dietLabels">{{tag}}</span>
+              </div>
+
+          </div>
+      </a>
+      <div class="recipe-image">
+     
+        <div class="circle-background">
+          <!-- Add heart icon with click event -->
+          <i class="fas fa-heart full-heart" (click)="toggleSaveRecipe(recipe)"></i>
+      </div></div>
+      <a [href]="recipe.recipeUrl" target="_blank" class="custom-link">Recipe Link</a>
+   
+  </div>
+</div>
+</div>
